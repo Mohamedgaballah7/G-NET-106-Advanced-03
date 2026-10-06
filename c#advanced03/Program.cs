@@ -5,6 +5,7 @@
         static void Main(string[] args)
         {
             #region Exercise one
+            /*
             // 1
             List<int> grades = new List<int> { 85, 92, 78, 95, 88, 70, 100, 65 };
 
@@ -52,8 +53,61 @@
             {
                 Console.WriteLine(grade);
             } 
+            */
             #endregion
 
+            #region Exercise two
+
+            // 1
+            SortedDictionary<int, string> leaderboard = new SortedDictionary<int, string>
+        {
+            { 500, "Ahmed" },
+            { 200, "Sara" },
+            { 800, "Ali" },
+            { 350, "Mona" }
+        };
+
+            // 2
+            Console.WriteLine("Leaderboard:");
+
+            foreach (var player in leaderboard)
+            {
+                Console.WriteLine($"Score: {player.Key}, Player: {player.Value}");
+            }
+
+            // 3
+            int firstKey = leaderboard.Keys.First();
+            string firstValue = leaderboard.Values.First();
+
+            Console.WriteLine($"\nFirst Key: {firstKey}");
+            Console.WriteLine($"First Value: {firstValue}");
+
+            // 4
+            bool exists = leaderboard.ContainsKey(500);
+
+            Console.WriteLine($"\nDoes score 500 exist? {exists}");
+
+            // 5
+            if (leaderboard.TryGetValue(999, out string playerName))
+            {
+                Console.WriteLine($"Player with score 999: {playerName}");
+            }
+            else
+            {
+                Console.WriteLine("No player found with score 999.");
+            }
+
+            // 6
+            leaderboard.Remove(200);
+
+            Console.WriteLine("\nLeaderboard after removing score 200:");
+
+            foreach (var player in leaderboard)
+            {
+                Console.WriteLine($"Score: {player.Key}, Player: {player.Value}");
+            }
+
+            #endregion
         }
     }
 }
